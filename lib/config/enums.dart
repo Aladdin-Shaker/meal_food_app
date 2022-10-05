@@ -1,0 +1,1 @@
+enum PositionItemType { log, position }
