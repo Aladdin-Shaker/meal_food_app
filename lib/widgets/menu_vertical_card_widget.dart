@@ -1,8 +1,7 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:meal_food_app/config/color_manager.dart';
 import 'package:meal_food_app/config/font_manager.dart';
+import 'package:meal_food_app/config/helper_functions.dart';
 import 'package:meal_food_app/config/size_manager.dart';
 import 'package:meal_food_app/config/styles_manager.dart';
 import 'package:meal_food_app/config/values_manager.dart';
@@ -48,7 +47,7 @@ Widget menuVerticalCardWidget(Menu menu, int index, BuildContext context) {
         children: [
           Positioned(
             right: widgetWidth - 50,
-            child: buildImgShape(menu.image, index),
+            child: HelperFunctions.buildMenuImgShape(menu.image, index),
           ),
           const SizedBox(width: AppSize.s25),
           Positioned(
@@ -113,106 +112,4 @@ Widget menuVerticalCardWidget(Menu menu, int index, BuildContext context) {
       ),
     ),
   );
-}
-
-Widget buildImgShape(String image, int index) {
-  switch (index) {
-    case 0:
-      return Container(
-        width: SizeManager.screenWidth / 6,
-        height: SizeManager.screenWidth / 6,
-        decoration: BoxDecoration(
-          borderRadius: buildImageBorder(index),
-          image: DecorationImage(
-            image: NetworkImage(image),
-            fit: BoxFit.cover,
-          ),
-        ),
-      );
-    case 1:
-      return Container(
-        width: SizeManager.screenWidth / 6,
-        height: SizeManager.screenWidth / 6,
-        decoration: BoxDecoration(
-          borderRadius: buildImageBorder(index),
-          image: DecorationImage(
-            image: NetworkImage(image),
-            fit: BoxFit.cover,
-          ),
-        ),
-      );
-    case 2:
-      return ClipPath(
-        clipBehavior: Clip.antiAlias,
-        clipper: TriangleClipper(),
-        child: Container(
-          width: SizeManager.screenWidth / 4,
-          height: SizeManager.screenWidth / 6,
-          decoration: BoxDecoration(
-            borderRadius: buildImageBorder(index),
-            image: DecorationImage(
-              image: NetworkImage(image),
-              fit: BoxFit.fill,
-            ),
-          ),
-        ),
-      );
-    case 3:
-      return Transform.rotate(
-        angle: pi / 4,
-        child: Container(
-          width: SizeManager.screenWidth / 6,
-          height: SizeManager.screenWidth / 6,
-          decoration: BoxDecoration(
-            borderRadius: buildImageBorder(index),
-            image: DecorationImage(
-              image: NetworkImage(image),
-              fit: BoxFit.cover,
-            ),
-          ),
-        ),
-      );
-
-    default:
-      return Container(
-        width: SizeManager.screenWidth / 6,
-        height: SizeManager.screenWidth / 6,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: NetworkImage(image),
-            fit: BoxFit.cover,
-          ),
-        ),
-      );
-  }
-}
-
-BorderRadius buildImageBorder(int index) {
-  if (index == 0) {
-    return BorderRadius.circular(AppSize.s50);
-  } else if (index == 1) {
-    return const BorderRadius.all(Radius.circular(AppSize.s20));
-  } else if (index == 2) {
-    return const BorderRadius.all(Radius.circular(AppSize.s50));
-  } else if (index == 3) {
-    return const BorderRadius.all(Radius.circular(AppSize.s20));
-  } else {
-    // default
-    return BorderRadius.circular(AppSize.s50);
-  }
-}
-
-class TriangleClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    final path = Path();
-    path.moveTo(size.width / 2, 4.0);
-    path.lineTo(size.width, size.height);
-    path.lineTo(3.0, size.height);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(TriangleClipper oldClipper) => false;
 }

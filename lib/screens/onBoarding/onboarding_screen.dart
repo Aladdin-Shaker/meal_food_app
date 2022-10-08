@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_food_app/config/size_manager.dart';
 import 'package:meal_food_app/data/controllers/onboarding_controller.dart';
 import 'package:meal_food_app/screens/onBoarding/onboarding_view.dart';
 import 'package:provider/provider.dart';
@@ -8,6 +9,7 @@ class OnBoardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeManager().init(context);
     final ctrl = Provider.of<OnBoardingController>(context, listen: false);
 
     return Scaffold(

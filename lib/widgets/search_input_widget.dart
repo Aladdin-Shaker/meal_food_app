@@ -11,12 +11,15 @@ Widget searchInputwidget() {
     obscureText: true,
     textAlign: TextAlign.start,
     enableSuggestions: false,
-    style:
-        getNormalStyle(color: ColorManager.placehoder, fontSize: AppSize.s14),
+    style: getNormalStyle(
+      color: ColorManager.placehoder,
+      fontSize: AppSize.s14,
+    ),
     decoration: InputDecoration(
       prefixIcon: const Icon(
         Icons.search,
         size: AppSize.s36,
+        color: ColorManager.placehoder,
       ),
       hintText: StringsManager.searchHint,
     ),

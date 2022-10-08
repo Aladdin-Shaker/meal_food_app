@@ -37,7 +37,7 @@ class StringsManager {
   static String addYourDetailsLogin = "Add your details to login";
   static String addYourDetailsSignup = "Add your details to signup";
   static String forgotYourPass = "Forgot your password?";
-  static String orLoginWith = "or Login With";
+  static String orLoginWith = "or login with";
   static String loginWithFb = "     Login with Facebook";
   static String loginWithGoogle = "    Login with Google";
   static String dontHaveAccount = "Don't have an Account?  ";

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meal_food_app/config/constants_manager.dart';
 import 'package:meal_food_app/config/routes_manager.dart';
+import 'package:meal_food_app/config/size_manager.dart';
 import 'package:meal_food_app/config/strings_manager.dart';
 import 'package:meal_food_app/config/styles_manager.dart';
 import 'package:meal_food_app/config/values_manager.dart';
@@ -37,11 +38,15 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
     return Padding(
       padding: const EdgeInsets.all(AppPadding.p30),
-      child: Column(
+      child: ListView(
         children: <Widget>[
-          const Spacer(flex: 1),
-          Image.asset(widget.slide.image),
-          const SizedBox(height: AppPadding.p18),
+          const SizedBox(height: AppSize.s20),
+          Image.asset(
+            widget.slide.image,
+            height: SizeManager.screenHeight / 3,
+            width: SizeManager.screenWidth,
+          ),
+          const SizedBox(height: AppSize.s20),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -52,7 +57,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 )
             ],
           ),
-          const SizedBox(height: AppPadding.p18),
+          const SizedBox(height: AppSize.s20),
           Text(
             widget.slide.title,
             style: getBoldStyle(color: ColorManager.primary),
@@ -64,7 +69,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
             style: getMeduimStyle(color: ColorManager.secondary),
             textAlign: TextAlign.center,
           ),
-          const Spacer(flex: 1),
+          const SizedBox(height: AppSize.s100),
           ElevatedButton(
             onPressed: () {
               if (ctrl.currentIndex == ctrl.slides.length - 1) {
@@ -89,7 +94,6 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               StringsManager.next,
             ),
           ),
-          const Spacer(),
         ],
       ),
     );

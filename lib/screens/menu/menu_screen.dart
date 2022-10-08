@@ -48,7 +48,7 @@ class MenuScreen extends StatelessWidget {
                 if (snapshot.hasData) {
                   return SizedBox(
                     width: SizeManager.screenWidth / 1.3,
-                    // height: SizeManager.screenWidth / 5,
+                    height: SizeManager.screenHeight,
                     child: ListView.builder(
                       itemCount: snapshot.data!.length,
                       scrollDirection: Axis.vertical,

@@ -6,14 +6,9 @@ import 'package:meal_food_app/widgets/appbar_widget.dart';
 import 'package:meal_food_app/widgets/bottom_navbar_widget.dart';
 import 'package:provider/provider.dart';
 
-class InitScreen extends StatefulWidget {
+class InitScreen extends StatelessWidget {
   const InitScreen({Key? key}) : super(key: key);
 
-  @override
-  State<InitScreen> createState() => _InitScreenState();
-}
-
-class _InitScreenState extends State<InitScreen> {
   @override
   Widget build(BuildContext context) {
     SizeManager().init(context);

@@ -5,6 +5,7 @@ import 'package:meal_food_app/screens/auth/resetPassword/reset_password_screen.d
 import 'package:meal_food_app/screens/auth/signup/signup_screen.dart';
 import 'package:meal_food_app/screens/gettingStart/getting_start_screen.dart';
 import 'package:meal_food_app/screens/home/home_screen.dart';
+import 'package:meal_food_app/screens/init/init_screen.dart';
 import 'package:meal_food_app/screens/menu/menu_item_screen.dart';
 import 'package:meal_food_app/screens/more/aboutUs/aboutus_screen.dart';
 import 'package:meal_food_app/screens/more/address/address_screen.dart';
@@ -22,6 +23,7 @@ import 'package:meal_food_app/screens/undefined/undefined_screen.dart';
 
 class Routes {
   static const String splashRoute = "/splash";
+  static const String initRoute = "/init";
   static const String onBoardingRoute = "/onboarding";
   static const String loginRoute = "/login";
   static const String signupRoute = "/signup";
@@ -54,6 +56,8 @@ class RouteGenerate {
         return MaterialPageRoute(builder: (_) => const SplashScreen());
       case Routes.onBoardingRoute:
         return MaterialPageRoute(builder: (_) => const OnBoardingScreen());
+      case Routes.initRoute:
+        return MaterialPageRoute(builder: (_) => const InitScreen());
       case Routes.loginRoute:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
       case Routes.signupRoute:

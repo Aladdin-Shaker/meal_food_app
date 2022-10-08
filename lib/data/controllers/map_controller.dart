@@ -12,14 +12,14 @@ class MapController extends ChangeNotifier {
   MapType defaultMapType = MapType.normal;
   bool isTrafficEnebled = false;
   Position? currentPosition;
-  final double _zoom = 20;
+  final double _zoom = 40;
   // final Location _location = Location();
 
   final GeolocatorPlatform _geolocatorPlatform = GeolocatorPlatform.instance;
 
   final CameraPosition kGooglePlex = const CameraPosition(
     target: LatLng(37.06803110196948, 37.364201210439205),
-    zoom: 20,
+    zoom: 40,
   );
 
   void onMapCreated(GoogleMapController controller) {

@@ -4,7 +4,12 @@ import 'package:meal_food_app/config/size_manager.dart';
 import 'package:meal_food_app/config/strings_manager.dart';
 import 'package:meal_food_app/config/values_manager.dart';
 
-Widget otpInputWidget() {
+Widget otpInputWidget(
+  BuildContext context,
+  FocusNode focus,
+  GlobalKey formKey,
+  int index,
+) {
   return Container(
     width: getProportionateScreenWidth(56),
     height: getProportionateScreenHeight(56),
@@ -13,12 +18,24 @@ Widget otpInputWidget() {
     child: TextFormField(
       // onSaved: (newValue) {},
       // validator: (value) {},
-      autofocus: true,
-      maxLength: 1,
-      textAlign: TextAlign.center,
-      maxLines: 1,
+      textInputAction: index == 3 ? TextInputAction.done : TextInputAction.next,
+      onChanged: (val) {
+        if (index <= 2 &&
+            val.isNotEmpty &&
+            num.tryParse(val) != null &&
+            val.length == 1) {
+          FocusScope.of(context).nextFocus();
+        } else {
+          FocusScope.of(context).unfocus();
+        }
+      },
+
+      autofocus: index == 0 ? true : false,
       textAlignVertical: TextAlignVertical.center,
       keyboardType: TextInputType.number,
+      maxLength: 1,
+      maxLines: 1,
+      textAlign: TextAlign.center,
       decoration: InputDecoration(
         counterText: '',
         hintText: StringsManager.star,

@@ -13,16 +13,17 @@ class HomeService {
             title: "offers"),
         Category(
             image:
-                "https://www.honestfoodtalks.com/wp-content/uploads/2021/04/fast-food-chain-burger-1024x614.jpg",
+                "https://www.honestfoodtalks.com/wp-content/uploads/2022/06/A-serving-of-chicken-in-black-sauce-720x540.jpg",
             title: "italian"),
         Category(
             image:
-                "https://www.honestfoodtalks.com/wp-content/uploads/2021/04/fast-food-chain-burger-1024x614.jpg",
+                "https://www.honestfoodtalks.com/wp-content/uploads/2022/05/a-plate-of-chow-mein-noodles.jpg",
             title: "indian"),
         Category(
-            image:
-                "https://www.honestfoodtalks.com/wp-content/uploads/2021/04/fast-food-chain-burger-1024x614.jpg",
-            title: "Sri Lankan"),
+          image:
+              "https://www.honestfoodtalks.com/wp-content/uploads/2022/05/crispy-chilli-beef-with-egg-fried-rice-500x375.jpg",
+          title: "Sri Lankan",
+        ),
       ];
       return categories;
     });
@@ -90,7 +91,7 @@ class HomeService {
   }
 
   Future<List<Food>> getRecentItems() async {
-    return Future.delayed(const Duration(seconds: 3), () {
+    return Future.delayed(const Duration(seconds: 1), () {
       final List<Food> foods = [
         Food(
           specialization: "Café Western Food",

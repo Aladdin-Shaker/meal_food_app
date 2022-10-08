@@ -3,6 +3,7 @@ import 'package:meal_food_app/config/color_manager.dart';
 
 AppBar appbarWidget({
   String? title,
+  bool isActions = true,
   Color backGColor = ColorManager.white,
   Color iconColor = ColorManager.primary,
 }) {
@@ -12,14 +13,16 @@ AppBar appbarWidget({
     elevation: 0,
     backgroundColor: backGColor,
     iconTheme: IconThemeData(color: iconColor),
-    actions: [
-      IconButton(
-        onPressed: () {},
-        icon: Icon(
-          Icons.shopping_cart_sharp,
-          color: iconColor,
-        ),
-      ),
-    ],
+    actions: isActions
+        ? [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.shopping_cart_sharp,
+                color: iconColor,
+              ),
+            ),
+          ]
+        : [],
   );
 }
